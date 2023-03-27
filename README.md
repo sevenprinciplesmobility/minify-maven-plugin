@@ -1,11 +1,11 @@
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.samaxes.maven/minify-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.samaxes.maven/minify-maven-plugin)
-[![Build Status](https://travis-ci.org/samaxes/minify-maven-plugin.png)](https://travis-ci.org/samaxes/minify-maven-plugin)
-
 # Minify Maven Plugin
 
 Minify Maven Plugin combines and minimizes your CSS and JavaScript files for faster page loading. It produces a merged and a minified version of your CSS and JavaScript resources which can be re-used across your project.
 
 Under the hood, it uses the [YUI Compressor](http://yui.github.com/yuicompressor/) and [Google Closure Compiler](https://developers.google.com/closure/compiler/) but has a layer of abstraction around these tools which allows for other tools to be added in the future.
+
+Forked from https://github.com/samaxes/minify-maven-plugin on March 27th, 2023 as the original version is apparently unmaintained. For changes in the forked 
+version and earlier please see https://github.com/sevenprinciples/minify-maven-plugin/blob/main/CHANGELOG.md
 
 ## Benefits
 
