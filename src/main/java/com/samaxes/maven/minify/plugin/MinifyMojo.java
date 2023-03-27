@@ -18,7 +18,6 @@
  */
 package com.samaxes.maven.minify.plugin;
 
-import com.google.common.base.Strings;
 import com.google.gson.Gson;
 import com.google.javascript.jscomp.*;
 import com.google.javascript.jscomp.CompilerOptions.LanguageMode;
@@ -41,11 +40,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import static com.google.common.collect.Lists.newArrayList;
+import com.samaxes.maven.minify.common.Strings;
 
 /**
  * Goal for combining and minifying CSS and JavaScript files.
  */
+//Apache 2.0 license compliance notice: this file has been changed since commit a8ca3f04aa6a57c43036b8cf2f0e686d1d0f7c2c
 @Mojo(name = "minify", defaultPhase = LifecyclePhase.PROCESS_RESOURCES, threadSafe = true)
 public class MinifyMojo extends AbstractMojo {
 
@@ -488,8 +488,12 @@ public class MinifyMojo extends AbstractMojo {
     }
 
     private ClosureConfig fillClosureConfig() throws MojoFailureException {
-        DependencyOptions dependencyOptions = new DependencyOptions();
-        dependencyOptions.setDependencySorting(closureSortDependencies);
+        DependencyOptions dependencyOptions;
+        if(closureSortDependencies){
+            dependencyOptions = DependencyOptions.sortOnly();
+        }else{
+            dependencyOptions = DependencyOptions.none();
+        }
 
         List<SourceFile> externs = new ArrayList<>();
         for (String extern : closureExterns) {
@@ -519,7 +523,7 @@ public class MinifyMojo extends AbstractMojo {
 
     private Collection<ProcessFilesTask> createTasks(YuiConfig yuiConfig, ClosureConfig closureConfig)
             throws MojoFailureException, FileNotFoundException {
-        List<ProcessFilesTask> tasks = newArrayList();
+        List<ProcessFilesTask> tasks = new ArrayList();
 
         if (!Strings.isNullOrEmpty(bundleConfiguration)) { // If a bundleConfiguration is defined, attempt to use that
             AggregationConfiguration aggregationConfiguration;

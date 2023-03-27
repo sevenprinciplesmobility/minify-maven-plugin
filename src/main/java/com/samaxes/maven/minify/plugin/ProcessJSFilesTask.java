@@ -16,11 +16,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+//Apache 2.0 license compliance notice: this file has been changed since commit 5b5559d16704505185f3cee3115d89d584299f47
 package com.samaxes.maven.minify.plugin;
 
-import com.google.common.collect.Lists;
 import com.google.javascript.jscomp.*;
-import com.google.javascript.jscomp.Compiler;
 import com.samaxes.maven.minify.common.ClosureConfig;
 import com.samaxes.maven.minify.common.JavaScriptErrorReporter;
 import com.samaxes.maven.minify.common.YuiConfig;
@@ -33,6 +32,9 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import com.google.javascript.jscomp.Compiler;
+
+import com.samaxes.maven.minify.common.Strings;
 
 /**
  * Task for merging and compressing JavaScript files.
@@ -128,17 +130,20 @@ public class ProcessJSFilesTask extends ProcessFilesTask {
                         }
                     }
 
-                    SourceFile input = SourceFile.fromInputStream(mergedFile.getName(), in, charset);
+                    SourceFile input = SourceFile.fromFile(mergedFile.getPath(), charset);
                     List<SourceFile> externs = new ArrayList<>();
                     externs.addAll(CommandLineRunner.getBuiltinExterns(closureConfig.getEnvironment()));
                     externs.addAll(closureConfig.getExterns());
 
+                    List<SourceFile> inputSourceFileList = new ArrayList<>();
+                    inputSourceFileList.add(input);
+
                     Compiler compiler = new Compiler();
-                    compiler.compile(externs, Lists.newArrayList(input), options);
+                    compiler.compile(externs, inputSourceFileList, options);
 
                     // Check for errors.
-                    JSError[] errors = compiler.getErrors();
-                    if (errors.length > 0) {
+                    List<JSError> errors = compiler.getErrors();
+                    if (errors.size() > 0) {
                         StringBuilder msg = new StringBuilder("JSCompiler errors\n");
                         MessageFormatter formatter = new LightweightMessageFormatter(compiler);
                         for (JSError e : errors) {
