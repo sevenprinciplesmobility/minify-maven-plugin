@@ -1,9 +1,10 @@
 # Minify Maven Plugin
 
-## 2.0.0
+## 1.7.7 (March 27th, 2023)
 
-* Adopt [Semantic Versioning](http://semver.org/) scheme.
-* Remove @deprecated options.
+* Forked from https://github.com/samaxes/minify-maven-plugin
+* Fixed incompatibility with Maven Compiler Plugin 3.9 and later (see https://github.com/samaxes/minify-maven-plugin/issues/174 )
+* Updated all libraries to their latest versions
 
 ## 1.7.6
 

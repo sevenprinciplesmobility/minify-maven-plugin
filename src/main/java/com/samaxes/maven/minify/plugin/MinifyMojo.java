@@ -16,6 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+//Apache 2.0 license compliance notice: this file has been changed since commit a8ca3f04aa6a57c43036b8cf2f0e686d1d0f7c2c
 package com.samaxes.maven.minify.plugin;
 
 import com.google.gson.Gson;
@@ -312,7 +313,7 @@ public class MinifyMojo extends AbstractMojo {
      *
      * @since 1.7.2
      */
-    @Parameter(property = "closureLanguageIn", defaultValue = "ECMASCRIPT6")
+    @Parameter(property = "closureLanguageIn", defaultValue = "ECMASCRIPT_2016")
     private LanguageMode closureLanguageIn;
 
     /**
