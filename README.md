@@ -27,7 +27,7 @@ Configure your project's `pom.xml` to run the plugin during the project's build 
 <build>
   <plugins>
     <plugin>
-      <groupId>com.sevenprinciples.maven</groupId>
+      <groupId>com.7p-group</groupId>
       <artifactId>minify-maven-plugin</artifactId>
       <version>1.7.7</version>
       <executions>
