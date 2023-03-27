@@ -2,18 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.samaxes.maven</groupId>
+    <groupId>com.sevenprinciples.maven</groupId>
     <artifactId>minify-maven-plugin</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>1.7.7</version>
     <packaging>maven-plugin</packaging>
 
     <name>Minify Maven Plugin</name>
     <description>Combine and minimize JavaScript and CSS files for faster page loading.</description>
-    <url>https://github.com/samaxes/minify-maven-plugin</url>
+    <url>https://github.com/sevenprinciples/minify-maven-plugin</url>
     <inceptionYear>2009</inceptionYear>
     <organization>
-        <name>Samuel Santos</name>
-        <url>http://samaxes.com</url>
+        <name>SEVEN PRINCIPLES</name>
+        <url>https://github.com/sevenprinciples</url>
     </organization>
     <licenses>
         <license>
@@ -23,46 +23,20 @@
         </license>
     </licenses>
 
-    <developers>
-        <developer>
-            <name>Samuel Santos</name>
-            <url>http://samaxes.com</url>
-            <roles>
-                <role>Project owner</role>
-                <role>Developer</role>
-            </roles>
-            <timezone>Europe/Lisbon</timezone>
-        </developer>
-    </developers>
-
     <prerequisites>
         <maven>${maven.api.version}</maven>
     </prerequisites>
 
     <scm>
-        <connection>scm:git:https://github.com/samaxes/minify-maven-plugin.git</connection>
-        <developerConnection>scm:git:git@github.com:samaxes/minify-maven-plugin.git</developerConnection>
-        <url>https://github.com/samaxes/minify-maven-plugin</url>
+        <connection>scm:git@github.com:sevenprinciples/minify-maven-plugin.git</connection>
+        <developerConnection>scm:git@github.com:sevenprinciples/minify-maven-plugin.git</developerConnection>
+        <url>https://github.com/sevenprinciples/minify-maven-plugin</url>
         <tag>HEAD</tag>
     </scm>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/samaxes/minify-maven-plugin/issues</url>
+        <url>https://github.com/sevenprinciples/minify-maven-plugin/issues</url>
     </issueManagement>
-    <ciManagement>
-        <system>Travis CI</system>
-        <url>https://travis-ci.org/samaxes/minify-maven-plugin</url>
-    </ciManagement>
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
 
     <properties>
         <maven.compiler.source>1.7</maven.compiler.source>
@@ -72,8 +46,8 @@
         <skipTests>true</skipTests>
         <github.global.server>github</github.global.server>
         <maven.api.version>3.0</maven.api.version>
-        <maven.plugin.version>3.5</maven.plugin.version>
-        <maven.javadoc.version>2.10.4</maven.javadoc.version>
+        <maven.plugin.version>3.8.1</maven.plugin.version>
+        <maven.javadoc.version>3.5.0</maven.javadoc.version>
     </properties>
 
     <dependencies>
@@ -92,6 +66,11 @@
             <scope>provided</scope>
         </dependency>
         <!-- Compile -->
+        <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-utils</artifactId>
+            <version>3.0.24</version>
+        </dependency>
         <dependency>
             <groupId>com.yahoo.platform.yui</groupId>
             <artifactId>yuicompressor</artifactId>
@@ -131,7 +110,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>1.4.1</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <id>enforce-versions</id>
@@ -154,7 +133,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
+                <version>3.3.0</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -194,7 +173,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
+                <version>3.0.0</version>
                 <configuration>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                     <useReleaseProfile>false</useReleaseProfile>
@@ -210,7 +189,7 @@
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
+                <version>1.6.13</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>
@@ -249,7 +228,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.9</version>
+                <version>3.4.2</version>
                 <reportSets>
                     <reportSet>
                         <reports>
@@ -287,7 +266,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jxr-plugin</artifactId>
-                <version>2.5</version>
+                <version>3.3.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -305,7 +284,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>3.0.1</version>
+                        <version>3.2.1</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
@@ -331,7 +310,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
+                        <version>3.0.1</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -346,4 +325,4 @@
             </build>
         </profile>
     </profiles>
-</project>
+</project><!-- Apache 2.0 license compliance notice: this file has been changed since commit c20ce6beba230f576ed87d902d0afc1398633a4d-->
