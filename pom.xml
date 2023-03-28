@@ -7,7 +7,7 @@
     <version>1.7.7</version>
     <packaging>maven-plugin</packaging>
 
-    <name>Minify Maven Plugin</name>
+    <name>${project.groupId}:${project.artifactId}</name>
     <description>Combine and minimize JavaScript and CSS files for faster page loading.</description>
     <url>https://github.com/sevenprinciples/minify-maven-plugin</url>
     <inceptionYear>2009</inceptionYear>
@@ -22,6 +22,14 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+    <developers>
+        <developer>
+            <name>Sasu Welling</name>
+            <email>sasu.welling@7p-group.com</email>
+            <organization>7p-group.com</organization>
+            <organizationUrl>https://7p-group.com</organizationUrl>
+        </developer>
+    </developers>
 
     <prerequisites>
         <maven>${maven.api.version}</maven>
@@ -193,7 +201,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
