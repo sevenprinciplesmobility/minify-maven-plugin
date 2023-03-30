@@ -7,3 +7,5 @@ minify-maven-plugin.iml
 .DS_Store
 release.properties
 pom.xml.releaseBackup
+pom.xml.next
+pom.xml.tag
