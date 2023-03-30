@@ -22,6 +22,7 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+
     <developers>
         <developer>
             <name>Sasu Welling</name>
@@ -39,7 +40,7 @@
         <connection>scm:git:https://github.com/sevenprinciples/minify-maven-plugin.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:sevenprinciples/minify-maven-plugin.git</developerConnection>
         <url>https://github.com/sevenprinciples/minify-maven-plugin</url>
-        <tag>HEAD</tag>
+        <tag>minify-maven-plugin-1.7.7</tag>
     </scm>
     <issueManagement>
         <system>GitHub</system>
