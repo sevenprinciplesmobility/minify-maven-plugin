@@ -6,3 +6,4 @@ target
 minify-maven-plugin.iml
 .DS_Store
 release.properties
+pom.xml.releaseBackup
