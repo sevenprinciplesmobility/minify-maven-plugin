@@ -4,7 +4,7 @@
 
     <groupId>com.7p-group</groupId>
     <artifactId>minify-maven-plugin</artifactId>
-    <version>1.7.7</version>
+    <version>1.7.7-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
@@ -36,8 +36,8 @@
     </prerequisites>
 
     <scm>
-        <connection>scm:git@github.com:sevenprinciples/minify-maven-plugin.git</connection>
-        <developerConnection>scm:git@github.com:sevenprinciples/minify-maven-plugin.git</developerConnection>
+        <connection>scm:git:https://github.com/sevenprinciples/minify-maven-plugin.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:sevenprinciples/minify-maven-plugin.git</developerConnection>
         <url>https://github.com/sevenprinciples/minify-maven-plugin</url>
         <tag>HEAD</tag>
     </scm>
@@ -45,6 +45,16 @@
         <system>GitHub</system>
         <url>https://github.com/sevenprinciples/minify-maven-plugin/issues</url>
     </issueManagement>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <maven.compiler.source>1.7</maven.compiler.source>
