@@ -38,7 +38,10 @@
 
     <scm>
         <connection>scm:git:https://github.com/sevenprinciples/minify-maven-plugin.git</connection>
+        <!--
         <developerConnection>scm:git:ssh://git@github.com:sevenprinciples/minify-maven-plugin.git</developerConnection>
+        -->
+        <developerConnection>scm:git:git@github.com:sevenprinciples/minify-maven-plugin.git</developerConnection>
         <url>https://github.com/sevenprinciples/minify-maven-plugin</url>
         <tag>minify-maven-plugin-1.7.7</tag>
     </scm>
