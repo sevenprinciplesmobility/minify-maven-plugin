@@ -4,7 +4,7 @@
 
     <groupId>com.7p-group</groupId>
     <artifactId>minify-maven-plugin-demo</artifactId>
-    <version>1.7.8-SNAPSHOT</version>
+    <version>1.7.9-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>Minify Maven Plugin Demo</name>
@@ -12,8 +12,8 @@
     <url>https://github.com/sevenprinciples/minify-maven-plugin</url>
 
     <properties>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <skipTests>true</skipTests>
