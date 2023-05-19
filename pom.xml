@@ -4,7 +4,7 @@
 
     <groupId>com.7p-group</groupId>
     <artifactId>minify-maven-plugin</artifactId>
-    <version>1.7.8-SNAPSHOT</version>
+    <version>1.7.8</version>
     <packaging>maven-plugin</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
@@ -43,7 +43,7 @@
         -->
         <developerConnection>scm:git:git@github.com:sevenprinciples/minify-maven-plugin.git</developerConnection>
         <url>https://github.com/sevenprinciples/minify-maven-plugin</url>
-        <tag>minify-maven-plugin-1.7.7</tag>
+        <tag>minify-maven-plugin-1.7.8</tag>
     </scm>
     <issueManagement>
         <system>GitHub</system>
