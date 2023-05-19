@@ -61,14 +61,14 @@
     </distributionManagement>
 
     <properties>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <skipTests>true</skipTests>
         <github.global.server>github</github.global.server>
         <maven.api.version>3.0</maven.api.version>
-        <maven.plugin.version>3.8.1</maven.plugin.version>
+        <maven.plugin.version>3.9.0</maven.plugin.version>
         <maven.javadoc.version>3.5.0</maven.javadoc.version>
     </properties>
 
