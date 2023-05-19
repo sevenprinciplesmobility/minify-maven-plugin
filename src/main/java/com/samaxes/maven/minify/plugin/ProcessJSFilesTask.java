@@ -30,11 +30,11 @@ import org.apache.maven.plugin.logging.Log;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import com.google.javascript.jscomp.Compiler;
 
-import com.samaxes.maven.minify.common.Strings;
 
 /**
  * Task for merging and compressing JavaScript files.
@@ -120,8 +120,12 @@ public class ProcessJSFilesTask extends ProcessFilesTask {
                     if (closureConfig.getSourceMapFormat() != null) {
                         options.setSourceMapFormat(closureConfig.getSourceMapFormat());
                         options.setSourceMapOutputPath(sourceMapResult.getPath());
-                        // options.setSourceMapLocationMappings(Lists.newArrayList(new
-                        // SourceMap.LocationMapping(sourceDir.getPath() + File.separator, "")));
+                        // converts absolute path in mappings source to filename
+                        // instead of creating a Path, File or doing regex every time,
+                        // we just return the merged filename
+                        options.setSourceMapLocationMappings(Arrays.asList(
+                                (String location) -> mergedFile.getName()
+                        ));
                     }
 
                     if (closureConfig.getWarningLevels() != null) {
