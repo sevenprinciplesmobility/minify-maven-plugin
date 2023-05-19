@@ -1,5 +1,9 @@
 # Minify Maven Plugin
 
+## 1.7.8 (May 19th, 2023)
+
+* Fixed [issue #1 - Sourcemap files contain absolute paths](https://github.com/sevenprinciples/minify-maven-plugin/issues/1)
+
 ## 1.7.7 (March 27th, 2023)
 
 * Forked from https://github.com/samaxes/minify-maven-plugin
