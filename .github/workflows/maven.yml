@@ -1,14 +1,14 @@
 on:
     push:
-      pull_request:
-        types:
-          - opened
-          - reopened
-          - synchronize
-          - labeled
       branches:
         - main
         - develop
+    pull_request:
+      types:
+        - opened
+        - reopened
+        - synchronize
+        - labeled
 name: Default Pipeline
 jobs:
   build:
