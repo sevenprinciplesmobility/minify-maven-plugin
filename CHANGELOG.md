@@ -1,5 +1,10 @@
 # Minify Maven Plugin
 
+## 1.7.9 (upcoming)
+
+* Library and Maven plugin updates, most importantly Google Clousure Compiler upgrade from v20230228 to v20240317
+* Minimum Java version set to 11, as Google Closure Compiler requires it
+
 ## 1.7.8 (May 19th, 2023)
 
 * Fixed [issue #1 - Sourcemap files contain absolute paths](https://github.com/sevenprinciples/minify-maven-plugin/issues/1)
