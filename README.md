@@ -56,7 +56,7 @@ Configure your project's `pom.xml` to run the plugin during the project's build 
 </build>
 ```
 
-This plugin requires Java 8.
+This plugin requires Java 11.
 
 ## License
 
