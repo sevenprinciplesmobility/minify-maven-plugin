@@ -69,7 +69,7 @@
         <skipTests>true</skipTests>
         <github.global.server>github</github.global.server>
         <maven.api.version>3.0</maven.api.version>
-        <maven.plugin.version>3.12.0</maven.plugin.version>
+        <maven.plugin.version>3.13.0</maven.plugin.version>
         <maven.javadoc.version>3.6.3</maven.javadoc.version>
     </properties>
 
