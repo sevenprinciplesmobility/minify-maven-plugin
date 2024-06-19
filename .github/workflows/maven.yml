@@ -16,11 +16,11 @@ jobs:
       matrix:
         java-version: [ '11', '17', '21' ]
         os: [ 'ubuntu-latest', 'macos-latest']
-        maven-version: [ '3.8.8', '3.9.6', '4.0.0-alpha-13' ]
+        maven-version: [ '3.8.8', '3.9.8', '4.0.0-beta-3' ]
         exclude:
           # 4.0.0 requires java 17+
           - java-version: '11'
-            maven-version: '4.0.0-alpha-13'
+            maven-version: '4.0.0-beta-3'
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout Source Code
