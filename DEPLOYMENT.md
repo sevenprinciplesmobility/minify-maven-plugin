@@ -11,7 +11,7 @@ This document is intended for maintainers of this repository.
 ### settings.xml
 ```xml
 <server>
-  <id>ossrh</id>
+  <id>ossrh-central</id>
   <username>user</username>
   <password>password</password>
 </server>
