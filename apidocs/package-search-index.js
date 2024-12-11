@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.samaxes.maven.minify.common"},{"l":"com.sevenprinciplesmobility.maven.minify"},{"l":"com.sevenprinciplesmobility.maven.minify.common"},{"l":"com.sevenprinciplesmobility.maven.minify.plugin"}];updateSearchResults();
