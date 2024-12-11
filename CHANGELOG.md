@@ -1,6 +1,6 @@
 # Minify Maven Plugin
 
-## 1.7.9 (December 12th, 2024)
+## 1.7.9 (December 11th, 2024)
 
 * Library and Maven plugin updates
 * Minimum Java version set to 11, as Google Closure Compiler requires it

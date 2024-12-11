@@ -37,22 +37,22 @@ You can execute `mvn -P minify-signing package gpg:sign` to check if the signing
 ```
 and you should have 8 `.asc` files in the `target` directory:
 ```text
-minify-maven-plugin-1.7.9-SNAPSHOT-javadoc.jar.asc
-minify-maven-plugin-1.7.9-SNAPSHOT-sources.jar.asc
-minify-maven-plugin-1.7.9-SNAPSHOT.jar.asc
-minify-maven-plugin-1.7.9-SNAPSHOT.pom.asc
-minify-maven-plugin-1.7.9-javadoc.jar.asc
-minify-maven-plugin-1.7.9-sources.jar.asc
-minify-maven-plugin-1.7.9.jar.asc
-minify-maven-plugin-1.7.9.pom.asc
+minify-maven-plugin-1.7.10-SNAPSHOT-javadoc.jar.asc
+minify-maven-plugin-1.7.10-SNAPSHOT-sources.jar.asc
+minify-maven-plugin-1.7.10-SNAPSHOT.jar.asc
+minify-maven-plugin-1.7.10-SNAPSHOT.pom.asc
+minify-maven-plugin-1.7.10-javadoc.jar.asc
+minify-maven-plugin-1.7.10-sources.jar.asc
+minify-maven-plugin-1.7.10.jar.asc
+minify-maven-plugin-1.7.10.pom.asc
 ```
 You should be verify any file like this:
 ```shell
-gpg --verify target/minify-maven-plugin-1.7.9-SNAPSHOT.jar.asc
+gpg --verify target/minify-maven-plugin-1.7.10-SNAPSHOT.jar.asc
 ```
 and get an output like
 ```text
-gpg: assuming signed data in 'target/minify-maven-plugin-1.7.9-SNAPSHOT.jar'
+gpg: assuming signed data in 'target/minify-maven-plugin-1.7.10-SNAPSHOT.jar'
 gpg: Signature made Mi 12 Dez 2024 07:09:19 CET
 gpg:                using EDDSA key F1AA1D21D6C9FD73FFF9C5AD89ABA1774FF41C5D
 gpg: Good signature from "Danny Developer (7P Mobility GmbH | Seven Principles AG) <danny.developer@7p-group.com>" [ultimate]
@@ -61,7 +61,7 @@ gpg: Good signature from "Danny Developer (7P Mobility GmbH | Seven Principles A
 ## Deploying a snapshot to Maven Central (OSSRH)
 
 Currently the deployment is a manual process. Process:
-1. Ensure that the project version ends with `SNAPSHOT`, e.g. `1.7.9-SNAPSHOT`
+1. Ensure that the project version ends with `SNAPSHOT`, e.g. `1.7.10-SNAPSHOT`
 2. Run `mvn tidy:pom`
 3. Check that the project compiles and all tests are green
 4. Check that there are no uncommitted or unpushed changes

@@ -37,7 +37,7 @@ Configure your project's `pom.xml` to run the plugin during the project's build 
     <plugin>
       <groupId>com.7p-group</groupId>
       <artifactId>minify-maven-plugin</artifactId>
-      <version>1.7.9-SNAPSHOT</version>
+      <version>1.7.9</version>
       <executions>
         <execution>
           <id>default-minify</id>
@@ -67,7 +67,7 @@ Configure your project's `pom.xml` to run the plugin during the project's build 
 
 This plugin requires Java 11.
 
-For more documentation see the project's documentation website at https://github.io/sevenprinciplesmobility/minify-maven-plugin
+For more documentation see the project's documentation website at https://sevenprinciplesmobility.github.io/minify-maven-plugin/
 
 ## License
 

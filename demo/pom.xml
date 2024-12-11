@@ -4,7 +4,7 @@
 
     <groupId>com.7p-group</groupId>
     <artifactId>minify-maven-plugin-demo</artifactId>
-    <version>1.7.9-SNAPSHOT</version>
+    <version>1.7.10-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>Minify Maven Plugin Demo</name>
