@@ -500,7 +500,10 @@
         <profile>
             <id>nexus</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>releaseTargetAndDeploymentType</name>
+                </property>
             </activation>
             <distributionManagement>
                 <repository>
