@@ -13,7 +13,7 @@ Minify Maven Plugin combines and minimizes your CSS and JavaScript files for fas
 
 Under the hood, it uses the [YUI Compressor]([https://github.com/yui/yuicompressor](https://github.com/yui/yuicompressor)) and [Google Closure Compiler](https://developers.google.com/closure/compiler/) but has a layer of abstraction around these tools which allows for other tools to be added in the future.
 
-Forked from https://github.com/samaxes/minify-maven-plugin in 2023 as the original version is apparently unmaintained. For changes in the forked version and earlier please see https://github.com/sevenprinciples/minify-maven-plugin/blob/main/CHANGELOG.md
+Forked from https://github.com/samaxes/minify-maven-plugin in 2023 as the original version is apparently unmaintained. For changes in the forked version and earlier please see https://github.com/sevenprinciplesmobility/minify-maven-plugin/blob/main/CHANGELOG.md
 
 ## Benefits
 
@@ -24,7 +24,7 @@ Forked from https://github.com/samaxes/minify-maven-plugin in 2023 as the origin
 > Combined files are a way to reduce the number of HTTP requests by combining all scripts into a single script, and similarly combining all CSS into a single stylesheet. Combining files is more challenging when the scripts and stylesheets vary from page to page, but making this part of your release process improves response times.
 
 ### Compress JavaScript and CSS
-
+    
 > Minification/compression is the practice of removing unnecessary characters from code to reduce its size thereby improving load times. A JavaScript compressor, in addition to removing comments and white-spaces, obfuscates local variables using the smallest possible variable name. This improves response time performance because the size of the downloaded file is reduced.
 
 ## Usage
@@ -37,7 +37,7 @@ Configure your project's `pom.xml` to run the plugin during the project's build 
     <plugin>
       <groupId>com.7p-group</groupId>
       <artifactId>minify-maven-plugin</artifactId>
-      <version>1.7.8</version>
+      <version>1.7.9-SNAPSHOT</version>
       <executions>
         <execution>
           <id>default-minify</id>
@@ -66,6 +66,8 @@ Configure your project's `pom.xml` to run the plugin during the project's build 
 ```
 
 This plugin requires Java 11.
+
+For more documentation see the project's documentation website at https://github.io/sevenprinciplesmobility/minify-maven-plugin
 
 ## License
 

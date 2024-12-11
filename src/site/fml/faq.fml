@@ -17,7 +17,7 @@
         <faq id="alternative-compilers">
             <question>Which JavaScript compressor engines does Minify Maven Plugin support?</question>
             <answer>
-                <p>Minify Maven Plugin supports <a href="http://yui.github.com/yuicompressor/">YUI Compressor</a> and <a href="https://developers.google.com/closure/compiler/">Google Closure Compiler</a>.</p>
+                <p>Minify Maven Plugin supports <a href="http://yui.github.io/yuicompressor/">YUI Compressor</a> and <a href="https://developers.google.com/closure/compiler/">Google Closure Compiler</a>.</p>
                 <p>Use the values <code>YUI</code> or <code>CLOSURE</code> with the option <code>&lt;jsEngine&gt;</code> to select the engine to use.</p>
             </answer>
         </faq>

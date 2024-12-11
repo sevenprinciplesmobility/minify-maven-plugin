@@ -42,9 +42,9 @@ Usage
     <plugins>
       <!-- ... -->
       <plugin>
-        <groupId>com.samaxes.maven</groupId>
+        <groupId>com.7p-group</groupId>
         <artifactId>minify-maven-plugin</artifactId>
-        <version>1.7.6</version>
+        <version>${project.version}</version>
         <executions>
           <execution>
             <id>default-minify</id>

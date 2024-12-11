@@ -1,4 +1,4 @@
-package com.samaxes.maven.minify.common;
+package com.sevenprinciplesmobility.maven.minify.common;
 
 /**
  * String utils

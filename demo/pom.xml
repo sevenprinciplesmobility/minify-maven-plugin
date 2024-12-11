@@ -9,7 +9,7 @@
 
     <name>Minify Maven Plugin Demo</name>
     <description>Demonstrate how to use minify-maven-plugin.</description>
-    <url>https://github.com/sevenprinciples/minify-maven-plugin</url>
+    <url>https://github.com/sevenprinciplesmobility/minify-maven-plugin</url>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>

@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.samaxes.maven.minify.common;
+package com.sevenprinciplesmobility.maven.minify.common;
 
 import java.util.Collections;
 import java.util.List;
@@ -27,10 +27,22 @@ import java.util.List;
 public class Aggregation {
 
     /**
-     * Defines the aggregation type.
+     * Creates a new Aggregation object
+     */
+    public Aggregation() {
+        super();
+    }
+
+    /**
+     * Represents the types of aggregation that can be performed.
+     * This enum is used to specify the type of content being aggregated.
      */
     public enum AggregationType {
-        css, js
+        /** Cascading Style Sheets (CSS) aggregation. */
+        css,
+
+        /** JavaScript (JS) aggregation. */
+        js
     }
 
     private AggregationType type;
