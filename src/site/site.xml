@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<site>
     <publishDate position="right" format="yyyy-MM-dd"/>
     <version position="right"/>
 
+    <skin>
+        <groupId>org.apache.maven.skins</groupId>
+        <artifactId>maven-fluido-skin</artifactId>
+        <version>2.0.0</version>
+    </skin>
+
+    <custom>
+        <fluidoSkin>
+            <leftColumnClass>span3</leftColumnClass>
+            <bodyColumnClass>span9</bodyColumnClass>
+            <gitHub>
+                <projectId>sevenprinciplesmobility/minify-maven-plugin</projectId>
+                <ribbonOrientation>right</ribbonOrientation>
+                <ribbonColor>red</ribbonColor>
+            </gitHub>
+            <facebookLike />
+            <googlePlusOne />
+        </fluidoSkin>
+    </custom>
+
     <body>
         <breadcrumbs>
-            <item name="Minify Maven Plugin" href="https://github.com/samaxes/minify-maven-plugin" />
+            <item name="Minify Maven Plugin" href="https://github.com/sevenprinciplesmobilitymobility/minify-maven-plugin" />
         </breadcrumbs>
 
         <menu ref="modules" />
@@ -24,27 +44,4 @@
         <menu ref="reports" />
     </body>
 
-    <skin>
-        <groupId>org.apache.maven.skins</groupId>
-        <artifactId>maven-fluido-skin</artifactId>
-        <version>1.5</version>
-    </skin>
-
-    <custom>
-        <fluidoSkin>
-            <leftColumnClass>span3</leftColumnClass>
-            <bodyColumnClass>span9</bodyColumnClass>
-            <gitHub>
-                <projectId>samaxes/minify-maven-plugin</projectId>
-                <ribbonOrientation>right</ribbonOrientation>
-                <ribbonColor>red</ribbonColor>
-            </gitHub>
-            <twitter>
-                <user>samaxes</user>
-                <showUser>true</showUser>
-            </twitter>
-            <facebookLike />
-            <googlePlusOne />
-        </fluidoSkin>
-    </custom>
-</project>
+</site>

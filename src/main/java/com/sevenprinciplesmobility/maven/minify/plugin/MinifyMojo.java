@@ -17,14 +17,14 @@
  * limitations under the License.
  */
 //Apache 2.0 license compliance notice: this file has been changed since commit a8ca3f04aa6a57c43036b8cf2f0e686d1d0f7c2c
-package com.samaxes.maven.minify.plugin;
+package com.sevenprinciplesmobility.maven.minify.plugin;
 
 import com.google.gson.Gson;
 import com.google.javascript.jscomp.*;
 import com.google.javascript.jscomp.CompilerOptions.LanguageMode;
-import com.samaxes.maven.minify.common.Aggregation;
-import com.samaxes.maven.minify.common.AggregationConfiguration;
-import com.samaxes.maven.minify.common.ClosureConfig;
+import com.sevenprinciplesmobility.maven.minify.common.Aggregation;
+import com.sevenprinciplesmobility.maven.minify.common.AggregationConfiguration;
+import com.sevenprinciplesmobility.maven.minify.common.ClosureConfig;
 import com.samaxes.maven.minify.common.YuiConfig;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -41,7 +41,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import com.samaxes.maven.minify.common.Strings;
+import com.sevenprinciplesmobility.maven.minify.common.Strings;
 
 /**
  * Goal for combining and minifying CSS and JavaScript files.
@@ -49,6 +49,13 @@ import com.samaxes.maven.minify.common.Strings;
 //Apache 2.0 license compliance notice: this file has been changed since commit a8ca3f04aa6a57c43036b8cf2f0e686d1d0f7c2c
 @Mojo(name = "minify", defaultPhase = LifecyclePhase.PROCESS_RESOURCES, threadSafe = true)
 public class MinifyMojo extends AbstractMojo {
+
+    /**
+     * Creates a new MinifyMojo object
+     */
+    public MinifyMojo() {
+        super();
+    }
 
     /**
      * Engine used for minification.

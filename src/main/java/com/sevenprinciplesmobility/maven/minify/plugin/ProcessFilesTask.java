@@ -16,11 +16,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.samaxes.maven.minify.plugin;
+package com.sevenprinciplesmobility.maven.minify.plugin;
 
 import com.samaxes.maven.minify.common.SourceFilesEnumeration;
 import com.samaxes.maven.minify.common.YuiConfig;
-import com.samaxes.maven.minify.plugin.MinifyMojo.Engine;
+import com.sevenprinciplesmobility.maven.minify.plugin.MinifyMojo.Engine;
 import org.apache.maven.plugin.logging.Log;
 import org.codehaus.plexus.util.DirectoryScanner;
 import org.codehaus.plexus.util.FileUtils;

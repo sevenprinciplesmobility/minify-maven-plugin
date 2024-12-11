@@ -17,13 +17,13 @@
  * limitations under the License.
  */
 //Apache 2.0 license compliance notice: this file has been changed since commit 5b5559d16704505185f3cee3115d89d584299f47
-package com.samaxes.maven.minify.plugin;
+package com.sevenprinciplesmobility.maven.minify.plugin;
 
 import com.google.javascript.jscomp.*;
-import com.samaxes.maven.minify.common.ClosureConfig;
+import com.sevenprinciplesmobility.maven.minify.common.ClosureConfig;
 import com.samaxes.maven.minify.common.JavaScriptErrorReporter;
 import com.samaxes.maven.minify.common.YuiConfig;
-import com.samaxes.maven.minify.plugin.MinifyMojo.Engine;
+import com.sevenprinciplesmobility.maven.minify.plugin.MinifyMojo.Engine;
 import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
 import org.apache.maven.plugin.logging.Log;
 

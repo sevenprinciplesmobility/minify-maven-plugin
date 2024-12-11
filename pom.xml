@@ -4,16 +4,16 @@
 
     <groupId>com.7p-group</groupId>
     <artifactId>minify-maven-plugin</artifactId>
-    <version>1.7.9-SNAPSHOT</version>
+    <version>1.7.9</version>
     <packaging>maven-plugin</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Combine and minimize JavaScript and CSS files for faster page loading.</description>
-    <url>https://github.com/sevenprinciples/minify-maven-plugin</url>
+    <url>https://github.com/sevenprinciplesmobility/minify-maven-plugin</url>
     <inceptionYear>2009</inceptionYear>
     <organization>
         <name>SEVEN PRINCIPLES</name>
-        <url>https://github.com/sevenprinciples</url>
+        <url>https://github.com/sevenprinciplesmobility</url>
     </organization>
     <licenses>
         <license>
@@ -27,8 +27,8 @@
         <developer>
             <name>Sasu Welling</name>
             <email>sasu.welling@7p-group.com</email>
-            <organization>7p-group.com</organization>
-            <organizationUrl>https://7p-group.com</organizationUrl>
+            <organization>SEVEN PRINCIPLES MOBILITY GMBH</organization>
+            <organizationUrl>https://7p-mobility.com/en/</organizationUrl>
         </developer>
     </developers>
 
@@ -37,26 +37,27 @@
     </prerequisites>
 
     <scm>
-        <connection>scm:git:https://github.com/sevenprinciples/minify-maven-plugin.git</connection>
-        <!--
-        <developerConnection>scm:git:ssh://git@github.com:sevenprinciples/minify-maven-plugin.git</developerConnection>
-        -->
+        <connection>scm:git:https://github.com/sevenprinciplesmobility/minify-maven-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:sevenprinciples/minify-maven-plugin.git</developerConnection>
-        <url>https://github.com/sevenprinciples/minify-maven-plugin</url>
+        <url>https://github.com/sevenprinciplesmobility/minify-maven-plugin</url>
         <tag>minify-maven-plugin-1.7.7</tag>
     </scm>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/sevenprinciples/minify-maven-plugin/issues</url>
+        <url>https://github.com/sevenprinciplesmobility/minify-maven-plugin/issues</url>
     </issueManagement>
     <distributionManagement>
+        <site>
+            <id>github</id>
+            <url>scm:git:git@github.com:sevenprinciplesmobility/minify-maven-plugin.git</url>
+        </site>
         <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <id>ossrh-central</id>
+            <url>${nexus.url}</url>
         </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>ossrh-central</id>
+            <url>${nexus.url}</url>
         </repository>
     </distributionManagement>
 
@@ -66,11 +67,15 @@
         <maven.compiler.release>11</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <skipTests>true</skipTests>
-        <github.global.server>github</github.global.server>
+
+        <!-- Versions -->
+        <!-- Versions: Maven -->
         <maven.api.version>3.0</maven.api.version>
+
+        <!-- Versions: plugins -->
         <maven.plugin.version>3.15.1</maven.plugin.version>
         <maven.javadoc.version>3.11.2</maven.javadoc.version>
+        <doxiaVersion>2.0.0</doxiaVersion>
     </properties>
 
     <dependencies>
@@ -111,6 +116,131 @@
             <artifactId>gson</artifactId>
             <version>2.11.0</version>
             <optional>true</optional>
+        </dependency>
+
+        <!-- Site -->
+        <dependency>
+            <groupId>org.apache.maven.skins</groupId>
+            <artifactId>maven-fluido-skin</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+
+        <!-- Doxia -->
+        <!-- The sl4j exclusions are necessary to prevent slf4j version 1.x from propagating to child POMs -->
+        <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-sink-api</artifactId>
+            <version>${doxiaVersion}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-core</artifactId>
+            <version>${doxiaVersion}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-module-xhtml5</artifactId>
+            <version>${doxiaVersion}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-module-apt</artifactId>
+            <version>${doxiaVersion}</version>
+            <scope>runtime</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-module-xdoc</artifactId>
+            <version>${doxiaVersion}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-module-fml</artifactId>
+            <version>${doxiaVersion}</version>
+            <scope>runtime</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-module-markdown</artifactId>
+            <version>${doxiaVersion}</version>
+            <scope>runtime</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- Doxia Sitetools -->
+        <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-site-model</artifactId>
+            <version>${doxiaVersion}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-site-renderer</artifactId>
+            <version>${doxiaVersion}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-integration-tools</artifactId>
+            <version>${doxiaVersion}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
@@ -184,69 +314,93 @@
                         <goals>
                             <goal>helpmojo</goal>
                         </goals>
+                        <configuration>
+                            <helpPackageName>com.sevenprinciplesmobility.maven.minify.plugin</helpPackageName>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
 
-            <!--
-                Perform a release deployment:
-                $ mvn release:clean release:prepare
-                $ mvn release:perform
-            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>3.1.1</version>
-                <configuration>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <useReleaseProfile>false</useReleaseProfile>
-                    <releaseProfiles>release</releaseProfiles>
-                    <goals>deploy</goals>
-                </configuration>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
             </plugin>
-            <!--
-                Release the deployment to the central repository (automatically done by mvn release:perform):
-                $ cd target/checkout
-                $ mvn nexus-staging:release
-            -->
+
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.7.0</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
-            <!--
-                Generate a new version of the Maven site:
-                $ cd target/checkout
-                $ mvn site
-            -->
-            <plugin>
-                <groupId>com.github.github</groupId>
-                <artifactId>site-maven-plugin</artifactId>
-                <version>0.12</version>
-                <configuration>
-                    <message>Creating site for ${project.version}</message>
-                    <dryRun>true</dryRun>
-                    <noJekyll>true</noJekyll>
-                </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
                 <executions>
                     <execution>
+                        <id>attach-sources</id>
                         <goals>
-                            <goal>site</goal>
+                            <goal>jar-no-fork</goal>
                         </goals>
-                        <phase>site</phase>
                     </execution>
                 </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven.javadoc.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <doclint>all,-missing</doclint>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.2.7</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.6.0</version>
+                <configuration>
+                    <skipPublishing>true</skipPublishing>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.1.3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.21.0</version>
+                <configuration>
+                    <inputEncoding>UTF-8</inputEncoding>
+                    <outputEncoding>UTF-8</outputEncoding>
+                    <siteDirectory>${project.basedir}/src/site</siteDirectory>
+                    <chmod>true</chmod>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-publish-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <scmBranch>gh-pages</scmBranch>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -260,18 +414,14 @@
                 <reportSets>
                     <reportSet>
                         <reports>
-                            <report>cim</report>
                             <report>dependencies</report>
-                            <report>dependency-convergence</report>
                             <report>dependency-info</report>
-                            <report>dependency-management</report>
-                            <report>issue-tracking</report>
-                            <report>license</report>
+                            <report>scm</report>
+                            <report>issue-management</report>
+                            <report>distribution-management</report>
+                            <report>index</report>
                             <report>plugin-management</report>
                             <report>plugins</report>
-                            <report>project-team</report>
-                            <report>scm</report>
-                            <report>summary</report>
                         </reports>
                     </reportSet>
                 </reportSets>
@@ -281,15 +431,21 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>${maven.javadoc.version}</version>
                 <configuration>
-                    <linksource>true</linksource>
-                    <quiet>true</quiet>
-                    <links>
-                        <link>http://docs.oracle.com/javase/7/docs/api/</link>
-                        <link>http://docs.oracle.com/javaee/7/api/</link>
-                        <link>http://maven.apache.org/ref/${maven.api.version}/maven-core/apidocs/</link>
-                        <link>http://maven.apache.org/ref/${maven.api.version}/maven-plugin-api/apidocs/</link>
-                    </links>
+                    <show>public</show>
+                    <doctitle>${project.name}</doctitle>
+                    <encoding>UTF-8</encoding>
+                    <doclint>all,-missing</doclint>
+                    <additionalOptions>
+                    </additionalOptions>
                 </configuration>
+                <reportSets>
+                    <reportSet>
+                        <id>default</id>
+                        <reports>
+                            <report>javadoc</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -298,56 +454,87 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-plugin-plugin</artifactId>
-                <version>${maven.plugin.version}</version>
+                <artifactId>maven-plugin-report-plugin</artifactId>
+                <version>3.15.1</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
             </plugin>
         </plugins>
     </reporting>
 
     <profiles>
+        <!-- Deployment profiles. The profile is determined by
+            1. release target (ossrh/staging), i.e. Maven Central (OSSRH) or Staging Repo for testing
+            2. deployment type (snapshot/release)
+            As profile activatation in Maven 3.x is not possible with multiple properties,
+            the properties are combined using an environment variable "releaseTargetAndDeploymentType"
+        -->
+        <!-- To publish release to Maven Central (OSSRH) -->
+        <!-- mvn deploy -DreleaseTargetAndDeploymentType=ossrh-release -->
+
+        <!-- To deploy snapshot to Maven Central (OSSRH)) -->
+        <!-- mvn deploy -DreleaseTargetAndDeploymentType=ossrh-snapshot -->
+
+        <!-- To deploy release to local Sonatype Nexus server -->
+        <!-- Configure profile in ~/.m2/settings.xml and set nexus.url to your local Nexus server -->
+        <!-- mvn deploy -DreleaseTargetAndDeploymentType=staging-release -->
+
+        <!-- To deploy snapshot to Sonatype Nexus server -->
+        <!-- Configure profile in ~/.m2/settings.xml and set nexus.url to your local Nexus server -->
+        <!-- mvn deploy -DreleaseTargetAndDeploymentType=staging-snapshot -->
         <profile>
-            <id>release</id>
+            <id>ossrh-snapshot</id>
+            <properties>
+                <nexus.url>https://oss.sonatype.org/content/repositories/snapshots/</nexus.url>
+            </properties>
+            <activation>
+                <property>
+                    <name>releaseTargetAndDeploymentType</name>
+                    <value>ossrh-snapshot</value>
+                </property>
+            </activation>
+        </profile>
+        <profile>
+            <id>ossrh-release</id>
+            <properties>
+                <nexus.url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</nexus.url>
+            </properties>
+            <activation>
+                <property>
+                    <name>releaseTargetAndDeploymentType</name>
+                    <value>ossrh-release</value>
+                </property>
+            </activation>
+        </profile>
+        <profile>
+            <id>nexus</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>nexus-repo</id>
+                    <url>${nexus.url}</url>
+                </repository>
+                <snapshotRepository>
+                    <id>nexus-repo</id>
+                    <url>${nexus.url}</url>
+                </snapshotRepository>
+            </distributionManagement>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>3.3.1</version>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>${maven.javadoc.version}</version>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.2.7</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <configuration>
+                            <skip>false</skip>
+                            <repositoryId>nexus-repo</repositoryId>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>

@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.samaxes.maven.minify.common;
+package com.sevenprinciplesmobility.maven.minify.common;
 
 import java.util.List;
 
@@ -26,6 +26,13 @@ import java.util.List;
 public class AggregationConfiguration {
 
     private List<Aggregation> bundles;
+
+    /**
+     * Creates a new AggregationConfiguration object
+     */
+    public AggregationConfiguration() {
+        super();
+    }
 
     /**
      * Gets the bundles.

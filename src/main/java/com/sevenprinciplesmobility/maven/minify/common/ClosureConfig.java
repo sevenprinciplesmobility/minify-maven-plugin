@@ -18,7 +18,7 @@
  */
 //Apache 2.0 license compliance notice: this file has been changed since commit ae4f668469d134fe1726a61e0a08b4998f201c90
 
-package com.samaxes.maven.minify.common;
+package com.sevenprinciplesmobility.maven.minify.common;
 
 import com.google.javascript.jscomp.*;
 import com.google.javascript.jscomp.CompilerOptions.LanguageMode;
@@ -27,8 +27,6 @@ import com.google.javascript.jscomp.SourceMap.Format;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.samaxes.maven.minify.common.Strings;
 
 /**
  * <a href="https://developers.google.com/closure/compiler/">Google Closure Compiler</a> configuration.

@@ -1,13 +1,20 @@
 # Minify Maven Plugin
 
-## 1.7.9 (upcoming)
+## 1.7.9 (December 12th, 2024)
 
-* Library and Maven plugin updates, most importantly Google Clousure Compiler upgrade from v20230228 to v20240317
+* Library and Maven plugin updates
 * Minimum Java version set to 11, as Google Closure Compiler requires it
+* Automatic dependency updates using Dependabot
+* Modernized Maven Site (Fluido skin update, `site.xml` structure)
+* Improved documentation
+* Deployment is now done using Maven `maven-deploy-plugin` instead of `maven-release-plugin`
+* Fixed Maven build warnings
+* Added plugin and configuration for publishing Maven Site to Github Pages (replacing the ancient github-site-plugin)
+* Added documentation for project contributors to deploy the project at https://github.com/sevenprinciplesmobility/minify-maven-plugin/blob/main/DEPLOYMENT.md
 
 ## 1.7.8 (May 19th, 2023)
 
-* Fixed [issue #1 - Sourcemap files contain absolute paths](https://github.com/sevenprinciples/minify-maven-plugin/issues/1)
+* Fixed [issue #1 - Sourcemap files contain absolute paths](https://github.com/sevenprinciplesmobility/minify-maven-plugin/issues/1)
 
 ## 1.7.7 (March 27th, 2023)
 
@@ -161,7 +168,7 @@
 ## 1.3
 
 * Change exclude/include patterns from a comma separated `String` to `List<String>`. Also included a custom file comparator that only compares the file name instead of the full file path.
-* Update [YUI Compressor](http://yui.github.com/yuicompressor/) dependency to version 2.4.2.
+* Update [YUI Compressor](http://yui.github.io/yuicompressor/) dependency to version 2.4.2.
 
 ## 1.2.1
 
