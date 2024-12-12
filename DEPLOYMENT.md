@@ -85,4 +85,5 @@ Currently the deployment is a manual process. Process:
 1. Set the `pom.xml` version to the next snapshot version
 2. Upload artifacts to GitHub releases
 3. If there are any changes affecting site documentation, run `mvn clean site site:stage scm-publish:publish-scm`
+4. Check that release is available at https://search.maven.org/artifact/com.7p-group/minify-maven-plugin
 
