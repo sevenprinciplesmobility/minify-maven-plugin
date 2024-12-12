@@ -1,5 +1,9 @@
 # Minify Maven Plugin
 
+## 1.7.10 (December 12th, 2024)
+
+* Site skin update
+
 ## 1.7.9 (December 11th, 2024)
 
 * Library and Maven plugin updates

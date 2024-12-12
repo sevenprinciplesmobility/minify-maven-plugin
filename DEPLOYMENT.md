@@ -78,3 +78,9 @@ Currently the deployment is a manual process. Process:
 6. Execute `mvn deploy -DreleaseTargetAndDeploymentType=ossrh-release -P minify-signing`
 7. Tag the release with `minify-maven-plugin-${project.version}`, e.g. `minify-maven-plugin-1.7.9`
 8. Push the tag
+
+### After releasing
+
+1. Set the `pom.xml` version to the next snapshot version
+2. Upload artifacts to GitHub releases
+3. If there are any changes affecting site documentation, run 
