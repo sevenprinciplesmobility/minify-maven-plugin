@@ -71,16 +71,18 @@ Currently the deployment is a manual process. Process:
 
 Currently the deployment is a manual process. Process:
 1. Ensure that the project version does not end with `SNAPSHOT`, i.e. it should be like `1.7.9`
-2. Ensure that all documentation (`CHANGELOG.md`, `README.MD`) have the correct version strings
-3. Run `mvn tidy:pom`
+2. Ensure that all documentation (`CHANGELOG.md`, `README.MD`) have the correct version strings and that all changes are documented
+3. Run `mvn tidy:pom` (otherwise the release may fail)
 4. Check that the project compiles and all tests are green
 5. Check that there are no uncommitted or unpushed changes
 6. Execute `mvn deploy -DreleaseTargetAndDeploymentType=ossrh-release -P minify-signing`
 7. Tag the release with `minify-maven-plugin-${project.version}`, e.g. `minify-maven-plugin-1.7.9`
 8. Push the tag
+9. Log into https://oss.sonatype.org/ and close and release the staging repository (see https://central.sonatype.org/publish/release/)
 
 ### After releasing
 
 1. Set the `pom.xml` version to the next snapshot version
 2. Upload artifacts to GitHub releases
-3. If there are any changes affecting site documentation, run 
+3. If there are any changes affecting site documentation, run `mvn clean site site:stage scm-publish:publish-scm`
+
