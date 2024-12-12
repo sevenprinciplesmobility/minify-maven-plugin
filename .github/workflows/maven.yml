@@ -23,16 +23,14 @@ jobs:
             maven-version: '4.0.0-beta-5'
     runs-on: ${{ matrix.os }}
     steps:
-      - name: Checkout Source Code
-        uses: actions/checkout@v4
       - name: Setup Maven with Java ${{ matrix.java-version }}
-        uses: s4u/setup-maven-action@v1.12.0
+        uses: s4u/setup-maven-action@v1.17.0
         with:
           java-version: ${{ matrix.java-version }}
           architecture: x64
-          distribution: 'temurin'
+          java-distribution: 'temurin'
           cache: 'maven'
-          maven: ${{ matrix.maven-version }}
+          maven-version: ${{ matrix.maven-version }}
       - name: Build with Maven
         run: mvn clean test install
       - name: Build Demo with Maven
