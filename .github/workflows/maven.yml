@@ -16,7 +16,7 @@ jobs:
       matrix:
         java-version: [ '11', '17', '21' ]
         os: [ 'ubuntu-latest', 'macos-latest']
-        maven-version: [ '3.8.8', '3.9.9', '4.0.0-rc-1' ]
+        maven-version: [ '3.8.8', '3.9.9', '4.0.0-rc-2' ]
         exclude:
           # 4.0.0 requires java 17+
           - java-version: '11'
@@ -27,9 +27,7 @@ jobs:
         uses: s4u/setup-maven-action@v1.17.0
         with:
           java-version: ${{ matrix.java-version }}
-          architecture: x64
           java-distribution: 'temurin'
-          cache: 'maven'
           maven-version: ${{ matrix.maven-version }}
       - name: Build with Maven
         run: mvn clean test install
