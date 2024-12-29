@@ -10,7 +10,7 @@
   "extends": [
     "config:recommended"
   ],
-  "schedule": ["daily before 8am"],
+  "schedule": ["before 8:00am"],
   "prConcurrentLimit": 3,
   "prHourlyLimit": 10,
   "reviewers": [
