@@ -4,7 +4,7 @@
 
     <groupId>com.7p-group</groupId>
     <artifactId>minify-maven-plugin</artifactId>
-    <version>1.7.11</version>
+    <version>1.7.12-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
