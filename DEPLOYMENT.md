@@ -37,22 +37,22 @@ You can execute `mvn -P minify-signing package gpg:sign` to check if the signing
 ```
 and you should have 8 `.asc` files in the `target` directory:
 ```text
-minify-maven-plugin-1.7.10-SNAPSHOT-javadoc.jar.asc
-minify-maven-plugin-1.7.10-SNAPSHOT-sources.jar.asc
-minify-maven-plugin-1.7.10-SNAPSHOT.jar.asc
-minify-maven-plugin-1.7.10-SNAPSHOT.pom.asc
-minify-maven-plugin-1.7.10-javadoc.jar.asc
-minify-maven-plugin-1.7.10-sources.jar.asc
-minify-maven-plugin-1.7.10.jar.asc
-minify-maven-plugin-1.7.10.pom.asc
+minify-maven-plugin-1.7.12-SNAPSHOT-javadoc.jar.asc
+minify-maven-plugin-1.7.12-SNAPSHOT-sources.jar.asc
+minify-maven-plugin-1.7.12-SNAPSHOT.jar.asc
+minify-maven-plugin-1.7.12-SNAPSHOT.pom.asc
+minify-maven-plugin-1.7.12-javadoc.jar.asc
+minify-maven-plugin-1.7.12-sources.jar.asc
+minify-maven-plugin-1.7.12.jar.asc
+minify-maven-plugin-1.7.12.pom.asc
 ```
 You should be verify any file like this:
 ```shell
-gpg --verify target/minify-maven-plugin-1.7.10-SNAPSHOT.jar.asc
+gpg --verify target/minify-maven-plugin-1.7.12-SNAPSHOT.jar.asc
 ```
 and get an output like
 ```text
-gpg: assuming signed data in 'target/minify-maven-plugin-1.7.10-SNAPSHOT.jar'
+gpg: assuming signed data in 'target/minify-maven-plugin-1.7.12-SNAPSHOT.jar'
 gpg: Signature made Mi 12 Dez 2024 07:09:19 CET
 gpg:                using EDDSA key F1AA1D21D6C9FD73FFF9C5AD89ABA1774FF41C5D
 gpg: Good signature from "Danny Developer (7P Mobility GmbH | Seven Principles AG) <danny.developer@7p-group.com>" [ultimate]
@@ -61,7 +61,7 @@ gpg: Good signature from "Danny Developer (7P Mobility GmbH | Seven Principles A
 ## Deploying a snapshot to Maven Central (OSSRH)
 
 Currently the deployment is a manual process. Process:
-1. Ensure that the project version ends with `SNAPSHOT`, e.g. `1.7.10-SNAPSHOT`
+1. Ensure that the project version ends with `SNAPSHOT`, e.g. `1.7.12-SNAPSHOT`
 2. Run `mvn tidy:pom`
 3. Check that the project compiles and all tests are green
 4. Check that there are no uncommitted or unpushed changes
@@ -70,13 +70,13 @@ Currently the deployment is a manual process. Process:
 ## Deploying a release to Maven Central (OSSRH)
 
 Currently the deployment is a manual process. Process:
-1. Ensure that the project version does not end with `SNAPSHOT`, i.e. it should be like `1.7.9`
+1. Ensure that the project version in the BOTH pom.xml files (main project and demo project) does not end with `SNAPSHOT`, i.e. it should be like `1.7.12`
 2. Ensure that all documentation (`CHANGELOG.md`, `README.MD`) have the correct version strings and that all changes are documented
 3. Run `mvn tidy:pom` (otherwise the release may fail)
 4. Check that the project compiles and all tests are green
 5. Check that there are no uncommitted or unpushed changes
 6. Execute `mvn deploy -DreleaseTargetAndDeploymentType=ossrh-release -P minify-signing`
-7. Tag the release with `minify-maven-plugin-${project.version}`, e.g. `minify-maven-plugin-1.7.9`
+7. Tag the release with `minify-maven-plugin-${project.version}`, e.g. `minify-maven-plugin-1.7.12`
 8. Push the tag
 9. Log into https://oss.sonatype.org/ and close and release the staging repository (see https://central.sonatype.org/publish/release/)
 
@@ -86,4 +86,4 @@ Currently the deployment is a manual process. Process:
 2. Upload artifacts to GitHub releases
 3. If there are any changes affecting site documentation, run `mvn clean site site:stage scm-publish:publish-scm`
 4. Check that release is available at https://search.maven.org/artifact/com.7p-group/minify-maven-plugin
-
+5. Upload artifacts to Github

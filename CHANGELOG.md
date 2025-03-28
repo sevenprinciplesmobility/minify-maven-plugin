@@ -1,5 +1,9 @@
 # Minify Maven Plugin
 
+## 1.7.11 (March 28th, 2025)
+
+* Dependency updates
+
 ## 1.7.10 (December 12th, 2024)
 
 * Site skin update
