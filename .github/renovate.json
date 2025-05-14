@@ -2,15 +2,24 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
     {
-      "depTypeList": [ "devDependencies", "require-dev" ],
-      "updateTypes": [ "patch", "minor", "digest"],
+      "matchDepTypes": [
+        "devDependencies",
+        "require-dev"
+      ],
+      "matchUpdateTypes": [
+        "patch",
+        "minor",
+        "digest"
+      ],
       "groupName": "devDependencies (non-major)"
     }
   ],
   "extends": [
     "config:recommended"
   ],
-  "schedule": ["before 8:00am"],
+  "schedule": [
+    "before 8:00am"
+  ],
   "prConcurrentLimit": 3,
   "prHourlyLimit": 10,
   "reviewers": [
