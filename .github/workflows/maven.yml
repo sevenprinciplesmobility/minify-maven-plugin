@@ -24,7 +24,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Setup Maven with Java ${{ matrix.java-version }}
-        uses: s4u/setup-maven-action@v1.18.0
+        uses: s4u/setup-maven-action@v1.19.0
         with:
           java-version: ${{ matrix.java-version }}
           java-distribution: 'temurin'
