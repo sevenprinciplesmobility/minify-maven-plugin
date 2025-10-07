@@ -531,7 +531,7 @@ public class MinifyMojo extends AbstractMojo {
 
     private Collection<ProcessFilesTask> createTasks(YuiConfig yuiConfig, ClosureConfig closureConfig)
             throws MojoFailureException, FileNotFoundException {
-        List<ProcessFilesTask> tasks = new ArrayList();
+        List<ProcessFilesTask> tasks = new ArrayList<>();
 
         if (!Strings.isNullOrEmpty(bundleConfiguration)) { // If a bundleConfiguration is defined, attempt to use that
             AggregationConfiguration aggregationConfiguration;
