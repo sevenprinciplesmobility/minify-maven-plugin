@@ -20,7 +20,7 @@ jobs:
         exclude:
           # 4.0.0 requires java 17+
           - java-version: '11'
-            maven-version: '4.0.0-rc-3'
+            maven-version: '4.0.0-rc-4'
     runs-on: ${{ matrix.os }}
     steps:
       - name: Setup Maven with Java ${{ matrix.java-version }}
