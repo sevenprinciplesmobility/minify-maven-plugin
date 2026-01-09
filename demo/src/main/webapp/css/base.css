@@ -129,3 +129,17 @@ input[type="reset"],
 input[type="submit"] {
 	padding:1px;
 }
+
+/* whitespaces around mathematical operation should not be stripped */
+.class-test {
+	display: grid;
+	--test-value : 10px;
+	grid-template-columns: calc(50% - (0.5 * var(--test-value))) 1fr;
+	background-color: dodgerblue;
+	padding: 10px;
+}
+
+.abc {
+	--test-value : 10px;
+	grid-template-columns: calc(50% - (0.5 * var(--test-value))) 1fr;
+}
