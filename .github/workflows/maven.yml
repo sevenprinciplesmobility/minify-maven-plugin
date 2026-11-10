@@ -14,13 +14,13 @@ jobs:
   build:
     strategy:
       matrix:
-        java-version: [ '11', '17', '21', '25' ]
+        java-version: [ '17', '21', '25' ]
         os: [ 'ubuntu-latest', 'macos-latest']
-        maven-version: [ '3.8.8', '3.9.11', '4.0.0-rc-5' ]
+        maven-version: [ '3.9.16', '3.10.0', '4.0.0-rc-7' ]
         exclude:
           # 4.0.0 requires java 17+
           - java-version: '11'
-            maven-version: '4.0.0-rc-5'
+            maven-version: '4.0.0-rc-7'
     runs-on: ${{ matrix.os }}
     steps:
       - name: Setup Maven with Java ${{ matrix.java-version }}
